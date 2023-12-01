@@ -71,6 +71,8 @@ class MAML(MetaTemplate):
         self.zero_grad()
         for task_step in range(self.task_update_num):
             scores = self.forward(x_a_i)
+            # added 
+            y_a_i = y_a_i.to(torch.int64)
             set_loss = self.loss_fn(scores, y_a_i)
             grad = torch.autograd.grad(set_loss, fast_parameters, create_graph=True)  # build full graph support gradient of gradient
             if self.approx:
@@ -106,6 +108,7 @@ class MAML(MetaTemplate):
         if torch.cuda.is_available():
             y_b_i = y_b_i.cuda()
 
+        y_b_i = y_b_i.to(torch.int64)
         loss = self.loss_fn(scores, y_b_i)
 
         return loss
