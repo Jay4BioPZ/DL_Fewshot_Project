@@ -2,3 +2,4 @@
 *.zip
 */wandb/*
 */outputs/*
+*.tar
