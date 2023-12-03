@@ -1,0 +1,7 @@
+defaults:
+  - meta_base
+
+cls:
+  _target_: methods.r2d2.R2D2
+
+name: r2d2

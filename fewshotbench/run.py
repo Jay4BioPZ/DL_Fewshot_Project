@@ -18,6 +18,9 @@ def initialize_dataset_model(cfg):
     else:
         raise ValueError(f"Unknown method type: {cfg.method.type}")
     train_loader = train_dataset.get_data_loader()
+    
+    # save train_loader for later use
+    #torch.save(train_loader, './data/test/train_loader.pt')
 
     # Instantiate val dataset as specified in dataset config under simple_cls or set_cls
     # Eval type (simple or set) is specified in method config, rather than dataset config
