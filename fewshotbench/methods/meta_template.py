@@ -48,8 +48,8 @@ class MetaTemplate(nn.Module):
             else: x = x.contiguous().view(self.n_way * (self.n_support + self.n_query), *x.size()[2:])
             z_all = self.feature.forward(x)
             z_all = z_all.view(self.n_way, self.n_support + self.n_query, -1)
-        z_support = z_all[:, :self.n_support]
-        z_query = z_all[:, self.n_support:]
+        z_support = z_all[:, :self.n_support] # of shape [n_way, n_support, **embed_dim]
+        z_query = z_all[:, self.n_support:] # of shape [n_way, n_query, **embed_dim]
 
         return z_support, z_query
 

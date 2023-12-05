@@ -15,10 +15,11 @@ class ProtoNet(MetaTemplate):
 
     def set_forward(self, x, is_feature=False):
         z_support, z_query = self.parse_feature(x, is_feature)
-
-        z_support = z_support.contiguous()
-        z_proto = z_support.view(self.n_way, self.n_support, -1).mean(1)  # the shape of z is [n_data, n_dim]
-        z_query = z_query.contiguous().view(self.n_way * self.n_query, -1)
+        
+        # make the tensor contiguous in memory, so that every row is stored in a continuous block of memory
+        z_support = z_support.contiguous() # shpape of z_support is [n_way*n_support, n_dim]
+        z_proto = z_support.view(self.n_way, self.n_support, -1).mean(1)  # the shape of z is [n_data, n_dim], take mean over n_support
+        z_query = z_query.contiguous().view(self.n_way * self.n_query, -1) # reslice the tensor to be [n_way*n_query, n_dim]
 
         dists = euclidean_dist(z_query, z_proto)
         scores = -dists
