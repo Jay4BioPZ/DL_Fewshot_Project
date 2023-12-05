@@ -73,6 +73,7 @@ class R2D2(MetaTemplate):
             wb = self.rr_standard(torch.cat((z_support, ones), 1), self.n_way, self.n_support, I, y_support, self.linsys)
 
         # extract weights and bias
+        # put the name of the input
         w = wb.narrow(0, 0, self.embed_dim) # of shape [**embed_dim, n_way]
         b = wb.narrow(0, self.embed_dim, 1) # of shape [1, n_way]
         
