@@ -1,0 +1,6 @@
+defaults:
+  - meta_base
+
+cls:
+  _target_: methods.lrd2.LRD2
+name: lrd2
