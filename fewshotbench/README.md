@@ -33,7 +33,8 @@ python -m pip install -r requirements.txt
 ### Training
 
 ```bash
-python run.py exp.name={exp_name} method=maml dataset=tabula_muris
+exp_name="A name for your experiment"
+python run.py exp.name=${exp_name} method=maml dataset=tabula_muris
 ```
 
 By default, method is set to MAML, and dataset is set to Tabula Muris.
