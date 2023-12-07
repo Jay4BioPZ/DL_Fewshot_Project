@@ -4,3 +4,4 @@
 */outputs/*
 *.tar
 *.pyc
+*/__pycache__/*

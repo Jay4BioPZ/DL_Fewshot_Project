@@ -13,7 +13,7 @@ import wandb
 
 from methods.meta_template import MetaTemplate
 from methods.r2d2_utils.adjust import AdjustLayer, LambdaLayer
-from methods.r2d2_utils.labels import make_float_label
+from methods.r2d2_utils.r2d2_labels import make_float_label
 
 
 class R2D2(MetaTemplate):
@@ -47,6 +47,8 @@ class R2D2(MetaTemplate):
         '''
         
         # prepare y_support matrix
+        # one-hot encode the ground truth labels into a matrix
+        # each column is a one-hot vector for a class
         y_support = make_float_label(self.n_way, self.n_support * self.n_augment) / np.sqrt(self.n_way * self.n_support * self.n_augment)
         
         # encode feature
@@ -94,31 +96,6 @@ class R2D2(MetaTemplate):
         
         # gives summation of loss --> L(Y_hat, y')
         return self.loss_fn(yhat, y_query)
-
-    # def train_loop(self, epoch, train_loader, optimizer):
-    #     print_freq = 10
-
-    #     avg_loss = 0
-    #     for i, (x, _) in enumerate(train_loader):
-    #         if isinstance(x, list):
-    #             self.n_query = x[0].size(1) - self.n_support
-    #             if self.change_way:
-    #                 self.n_way = x[0].size(0)
-    #         else: 
-    #             self.n_query = x.size(1) - self.n_support
-    #             if self.change_way:
-    #                 self.n_way = x.size(0)
-    #         optimizer.zero_grad()
-    #         loss = self.set_forward_loss(x)
-    #         loss.backward()
-    #         optimizer.step()
-    #         avg_loss = avg_loss + loss.item()
-
-    #         if i % print_freq == 0:
-    #             # print(optimizer.state_dict()['param_groups'][0]['lr'])
-    #             print('Epoch {:d} | Batch {:d}/{:d} | Loss {:f}'.format(epoch, i, len(train_loader),
-    #                                                                     avg_loss / float(i + 1)))
-    #             wandb.log({"loss": avg_loss / float(i + 1)})
       
     def rr_standard(self, x, n_way, n_shot, I, yrr_binary, linsys):
         x /= np.sqrt(n_way * n_shot * self.n_augment)
@@ -128,7 +105,7 @@ class R2D2(MetaTemplate):
         else:
             A = mm(t(x, 0, 1), x) + self.lambda_rr(I)
             v = mm(t(x, 0, 1), yrr_binary)
-            w, _ = gesv(v, A)
+            w, _ = solve(v, A)
 
         return w
 
