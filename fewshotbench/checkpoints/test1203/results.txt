@@ -1,3 +1,0 @@
-Time: 20231203-163700, Setting: swissprot-train-FCNet-r2d2 5shot 5way, Acc: 85.36% +- 0.69%, Model: checkpoints/test1203/swissprot/r2d2_FCNet/20231203_163317/best_model.tar 
-Time: 20231203-163735, Setting: swissprot-val-FCNet-r2d2 5shot 5way, Acc: 80.83% +- 0.64%, Model: checkpoints/test1203/swissprot/r2d2_FCNet/20231203_163317/best_model.tar 
-Time: 20231203-163806, Setting: swissprot-test-FCNet-r2d2 5shot 5way, Acc: 61.86% +- 0.55%, Model: checkpoints/test1203/swissprot/r2d2_FCNet/20231203_163317/best_model.tar 

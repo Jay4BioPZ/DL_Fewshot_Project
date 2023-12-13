@@ -1,3 +1,0 @@
-Time: 20231201-213202, Setting: swissprot-train-FCNet-maml 5shot 5way, Acc: 98.60% +- 0.23%, Model: checkpoints/test1201/swissprot/maml_FCNet/20231201_212023/best_model.tar 
-Time: 20231201-213236, Setting: swissprot-val-FCNet-maml 5shot 5way, Acc: 58.28% +- 0.76%, Model: checkpoints/test1201/swissprot/maml_FCNet/20231201_212023/best_model.tar 
-Time: 20231201-213307, Setting: swissprot-test-FCNet-maml 5shot 5way, Acc: 41.07% +- 0.61%, Model: checkpoints/test1201/swissprot/maml_FCNet/20231201_212023/best_model.tar 
