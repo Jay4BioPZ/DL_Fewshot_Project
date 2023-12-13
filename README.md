@@ -1,8 +1,13 @@
-# DL_Fewshot_Project
+# CS-502 Project - Fewshot-Benchmark: Differentiable Closed-Form and Iterative Solver
 
-CS-502 fewshot learning project
+Berta Céspedes Sarrias, Hadi Hammoud, Yung-Cheng Chiang
 
-## Environment setup
+## Project Description
+
+The project implements the few-shot learning algorithm proposed by **Bertinetto et al., 2018** ([arXiv](https://arxiv.org/abs/1805.08136), [GitHub](https://github.com/bertinetto/r2d2/tree/master?tab=readme-ov-file)) on two biomedical datasets: SwissProt and Tabula Maris. The algorithm is runned under a hydra framework and the result is compared with other few-shot learning benchmark algorithms with the same backbone.
+
+
+<!-- ## Environment setup
 
 1. Follow [VM cuda setup tutorial](https://docs.google.com/document/d/1VOyCTOin7JZadlxLMJ457mo7ihypHYT3U2IA83Ba5VY/edit) to get GCP VM instance with miniconda and cuda installed.
 2. Establish ssh connection to GCP VM instance as well with local machine.
@@ -27,4 +32,4 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 
 ## Dataset
 
-The dataset should be manually download as instructed in [project readme](./fewshotbench/README.md) and put in the `.YOURFOLDER/fewshotbench/data` folder. They should be ignored by git.
+The dataset should be manually download as instructed in [project readme](./fewshotbench/README.md) and put in the `.YOURFOLDER/fewshotbench/data` folder. They should be ignored by git. -->
