@@ -5,3 +5,5 @@
 *.tar
 *.pyc
 */__pycache__/*
+*.txt
+*/visualization/*

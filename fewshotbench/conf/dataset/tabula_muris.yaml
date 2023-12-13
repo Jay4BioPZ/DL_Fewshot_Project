@@ -18,6 +18,6 @@ backbone:
 # For baseline, how many total classes
 train_classes: 59
 
-n_way: 5
-n_shot: 5
+n_way: ${n_way}
+n_shot: ${n_shot}
 n_query: 15

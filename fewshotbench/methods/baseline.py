@@ -47,7 +47,7 @@ class Baseline(MetaTemplate):
 
     def set_forward_loss(self, x, y):
         scores = self.forward(x)
-        print(scores.shape)
+        #print(scores.shape)
         if self.type == 'classification':
             y = y.long().cuda()
         else:
@@ -56,7 +56,7 @@ class Baseline(MetaTemplate):
         return self.loss_fn(scores, y)
 
     def train_loop(self, epoch, train_loader, optimizer):
-        print_freq = 10
+        print_freq = 500
         avg_loss = 0
 
         for i, (x, y) in enumerate(train_loader):

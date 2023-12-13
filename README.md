@@ -1,6 +1,6 @@
 # CS-502 Project - Fewshot-Benchmark: Differentiable Closed-Form and Iterative Solver
 
-Berta Céspedes Sarrias, Hadi Hammoud, Yung-Cheng Chiang
+Group 25: Berta Céspedes Sarrias, Hadi Hammoud, Yung-Cheng Chiang
 
 ## Project Description
 
@@ -12,6 +12,8 @@ Two algorithm modules were added:
 
 - [`R2D2`](./fewshotbench/methods/r2d2.py): the "Ridge Regression Differentiable Discriminator".
 - [`LRD2`](./fewshotbench/methods/lrd2.py): the "Logistic Regression Differentiable Discriminator".
+
+For more mathematical details, please refer to the submitted project report.
 
 ## Instructions
 

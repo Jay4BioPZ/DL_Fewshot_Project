@@ -26,7 +26,7 @@ class R2D2(MetaTemplate):
         self.rr_type = None
         self.embed_dim = None
         self.learn_lambda = False
-        self.init_lambda = 1
+        self.init_lambda = 0.1
         self.lambda_base = 1
         self.linsys = False
         self.lambda_rr = LambdaLayer(self.learn_lambda, self.init_lambda, self.lambda_base)

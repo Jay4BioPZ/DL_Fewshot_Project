@@ -17,10 +17,10 @@ exp:
   val_freq: 1
 
 optimizer: Adam
-lr: 0.001
+lr: ${lr}
 optimizer_cls:
   _target_: torch.optim.${optimizer}
-  lr: ${lr}
+  lr: ${lr}   
 
 checkpoint:
   dir: checkpoints/${exp.name}/${dataset.name}/${method.name}_${model}
